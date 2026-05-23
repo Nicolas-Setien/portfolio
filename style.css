@@ -26,8 +26,10 @@ h1 {
 h2 { margin-bottom: 5px; }
 
 h2 + p {
-    text-align: right;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 a {
@@ -40,23 +42,43 @@ a:hover {
     color:hsl(from #ddd h s 70%)
 }
 
+small {
+    color: rgba(180,180,180,0.5);
+    margin-top: 5px;
+}
+
 span {
     font-weight: 200;
 }
 
 nav {
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     top: 0;
-    left: 0;
-    height: 30px;
+    height: 34px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.3);
     width: 100%;
     padding: 10px 10px 0;
     backdrop-filter: blur(3px);
     z-index: 100;
 }
 
-.intro {
+nav div {
+    padding-right: 20px;
+}
+
+nav img {
+    height: 24px;
+}   
+
+nav span {
+    text-shadow: 0 0 3px black;
+    padding-top: 4px;
+}
+
+#intro {
     padding: 0 15%
 }
 
@@ -73,13 +95,13 @@ nav {
     position: relative;
     padding: 20px 10px;
     border-bottom: 2px solid rgba(255,255,255,0.2);
-    margin: 0 20px 20px;
+    margin: 0 100px 20px;
 }
 
 .site img {
     position: absolute;
     right: 0; 
-    height: 250px;
+    height: 300px;
     filter: brightness(90%);
     border: 10px solid white;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
@@ -97,16 +119,11 @@ nav {
     transform: rotate(2deg);
 }
 
-.current-top {
-    animation-name: shuffled;
-    animation-duration: 0.2s;
-}
-
 .site h3 {
     position: relative;
     left: -6%;
     font-size: 60px; 
-    margin: 300px 0 -10px;
+    margin: 350px 0 -10px;
     font-weight: 600;
 }
 
@@ -122,6 +139,41 @@ nav {
 .site:nth-child(even) img {
     left: 0;
 }
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    padding-right: 10px;
+}
+
+.gallery-column img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.gallery-column img:hover {
+    animation-name: imageZoom;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+#tea-gen {
+    display: flex;
+    justify-content: center;
+    transform: scale(80%);
+}
+
+.current-top {
+    animation-name: shuffled;
+    animation-duration: 0.2s;
+}
+
 
 #character {
     position: fixed;
@@ -140,6 +192,14 @@ nav {
         transform: scale(103%);
     } to {
         transform: scale(100%);
+    }
+}
+
+@keyframes imageZoom {
+    from {
+        width: 100%;
+    } to {
+        width: 130%;
     }
 }
 
