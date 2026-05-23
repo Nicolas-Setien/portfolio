@@ -97,6 +97,11 @@ nav {
     transform: rotate(2deg);
 }
 
+.current-top {
+    animation-name: shuffled;
+    animation-duration: 0.2s;
+}
+
 .site h3 {
     position: relative;
     left: -6%;
@@ -130,24 +135,28 @@ nav {
     animation-iteration-count: infinite;
 }
 
+@keyframes shuffled{
+    from {
+        transform: scale(103%);
+    } to {
+        transform: scale(100%);
+    }
+}
+
 @keyframes character-rotate{
     0% {
         transform: rotate3D(3,2,2,0deg);
         animation-timing-function: linear;
-    }
-    25% {
+    } 25% {
         transform: rotate3D(3,2,2,90deg);
         animation-timing-function: linear;
-    }
-    50% {
+    } 50% {
         transform: rotate3D(3,2,2,180deg);
         animation-timing-function: linear;
-    }
-    75% {
+    } 75% {
         transform: rotate3D(3,2,2,270deg);
         animation-timing-function: linear;
-    }
-    100% {
+    } 100% {
         transform: rotate3D(3,2,2,360deg);
         animation-timing-function: linear;
     }

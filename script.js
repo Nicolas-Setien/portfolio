@@ -2,8 +2,6 @@ topImg = document.querySelectorAll(".top-img");
 midImg = document.querySelectorAll(".mid-img");
 lowImg = document.querySelectorAll(".low-img");
 
-topImg.title = "Click me to see more!";
-// topImg.style.transform = "rotate(80deg)";
 console.log(topImg);
 
 for (var i in topImg) {
@@ -28,6 +26,7 @@ for (var i in lowImg) {
 function shufflePhotosTop(index){
     midImg[index].style.zIndex = "0";
     midImg[index].style.transform = "rotate(0deg)";
+    midImg[index].classList.add("current-top");
 
     lowImg[index].style.zIndex = "-1";
     lowImg[index].style.transform =
@@ -36,11 +35,13 @@ function shufflePhotosTop(index){
     topImg[index].style.zIndex = "-2";
     topImg[index].style.transform = 
         `rotate(${Math.floor(Math.random() * 10) - 5}deg)`;
+    topImg[index].classList.remove("current-top");
 }
 
 function shufflePhotosMid(index){
     lowImg[index].style.zIndex = "0";
     lowImg[index].style.transform = "rotate(0deg)";
+    lowImg[index].classList.add("current-top");
 
     topImg[index].style.zIndex = "-1";
     topImg[index].style.transform =
@@ -49,11 +50,13 @@ function shufflePhotosMid(index){
     midImg[index].style.zIndex = "-2";
     midImg[index].style.transform = 
         `rotate(${Math.floor(Math.random() * 10) - 5}deg)`;
+    midImg[index].classList.remove("current-top");
 }
 
 function shufflePhotosLow(index){
     topImg[index].style.zIndex = "0";
     topImg[index].style.transform = "rotate(0deg)";
+    topImg[index].classList.add("current-top");
 
     midImg[index].style.zIndex = "-1";
     midImg[index].style.transform =
@@ -62,6 +65,7 @@ function shufflePhotosLow(index){
     lowImg[index].style.zIndex = "-2";
     lowImg[index].style.transform = 
         `rotate(${Math.floor(Math.random() * 10) - 5}deg)`;
+    lowImg[index].classList.remove("current-top");
 }
 /*
 topImg.addEventListener("click", () => {
