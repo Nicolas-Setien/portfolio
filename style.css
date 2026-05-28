@@ -3,6 +3,7 @@
 body {
     background-image: radial-gradient(farthest-corner at 10px 10px, #333 0%, #222 100%);
     background-attachment: fixed;
+    background-size: 100vw 100vh;
     color: #ddd;
     font-family: "Aleo";
     height: 100vh;
@@ -86,6 +87,10 @@ nav span {
     padding: 0 20%;
 }
 
+.content p small::before {
+    content: "(click";
+}
+
 .sites {
     display: flex;
     flex-direction: column;
@@ -143,13 +148,15 @@ nav span {
 .gallery {
     display: flex;
     flex-direction: row;
+    align-self: center;
+    justify-content: center;
 }
 
 .gallery-column {
     display: flex;
     flex-direction: column;
     width: 23%;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 .gallery-column img {
@@ -163,17 +170,17 @@ nav span {
     animation-fill-mode: forwards;
 }
 
-#tea-gen {
-    display: flex;
-    justify-content: center;
-    transform: scale(80%);
-}
-
 .current-top {
     animation-name: shuffled;
     animation-duration: 0.2s;
 }
 
+#tea-gen {
+    display: flex;
+    justify-content: center;
+    transform: scale(80%);
+    margin: -60px -84px;
+}
 
 #character {
     position: fixed;
@@ -185,6 +192,30 @@ nav span {
     animation-name: character-rotate;
     animation-duration: 30s;
     animation-iteration-count: infinite;
+}
+
+@media screen and (max-width: 600px) {
+    body { 
+        background-image: linear-gradient(#333 0%, #222 50%, #333 100%);
+        background-attachment: scroll;
+    }
+    h1 {
+        font-size: 66px;
+        width: 90%;
+    }
+    h2 { font-size: 50px; }
+    .content { padding: 0 10%; }
+    .site { margin: 0 0px 20px; }
+    .site img { height: 180px;}
+    .content p small::before { content: "(tap"; }
+    .site h3 { margin-top: 240px;}
+    #character { bottom: -30%; }
+    #tea-gen {
+        height: 360px;
+        width: 100%;
+        margin: 0;
+        transform: none;
+    }
 }
 
 @keyframes shuffled{
@@ -200,6 +231,14 @@ nav span {
         width: 100%;
     } to {
         width: 130%;
+    }
+}
+
+@keyframes galleryColumnZoom {
+    from {
+        width: 23%;
+    } to {
+        width: 17.69%;
     }
 }
 
